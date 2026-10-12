@@ -1,0 +1,43 @@
+SAVE EMAILS TO A GOOGLE SHEET (free, about 10 minutes)
+
+Your website is a static site, so it has no database. The easiest free way to
+keep emails is a Google Sheet. You can download it as Excel at any time
+(File > Download > Microsoft Excel).
+
+1. Go to sheets.google.com and create a new blank spreadsheet.
+   Name it "Shree Prannath email list".
+
+2. In the sheet, click Extensions > Apps Script.
+
+3. Delete everything in the editor. Open the file google-sheet-script.gs
+   from this folder, copy all of it, and paste it into the editor.
+   Click the Save icon.
+
+4. Click Deploy > New deployment.
+   - Click the gear icon next to "Select type" and choose "Web app".
+   - Description: Email list
+   - Execute as: Me
+   - Who has access: Anyone
+   Click Deploy. Google asks you to authorize. Click "Authorize access", choose
+   your Google account, then Advanced > "Go to ... (unsafe)" > Allow.
+   (The warning appears because you wrote the script yourself.)
+
+5. Copy the "Web app URL". It starts with https://script.google.com/macros/s/
+
+6. Open contact.html in VS Code. Find this line near the bottom:
+       var SHEET_URL = "";
+   Paste the URL between the quotes, then save the file.
+
+7. Upload to GitHub as usual. Test it: submit the "Join the email list" form on
+   your contact page. A new row should appear in the "Leads" tab of your sheet.
+
+NOTES
+- Only people who tick the email box (order form) or use the "Join the email
+  list" form are saved. Their consent is recorded in the last column.
+- If you change the script later, use Deploy > Manage deployments > Edit >
+  New version, otherwise the website keeps using the old version.
+- Anyone who has the Web app URL can send rows to your sheet. The script only
+  accepts rows that tick consent and have a valid email, but if you ever get
+  spam, create a new deployment and replace the URL in contact.html.
+- To send the actual emails, use the sheet with a tool such as Mailchimp,
+  Brevo or Gmail mail merge. Always include a way to unsubscribe.

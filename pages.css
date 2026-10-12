@@ -1,0 +1,169 @@
+/* Extra styles for about.html and contact.html.
+   Uses the colour variables already defined in site.css. */
+
+.pp {
+  font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: hsl(var(--foreground));
+  line-height: 1.6;
+}
+.pp *, .pp *::before, .pp *::after { box-sizing: border-box; }
+/* :where() keeps these resets at zero specificity so component classes win */
+:where(.pp) :where(h1, h2, h3, p, ul, dl, dd, figure) { margin: 0; padding: 0; }
+.pp :where(ul) { list-style: none; }
+.pp :where(a) { color: inherit; }
+
+.pp-wrap { width: 100%; max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+.pp-narrow { max-width: 42rem; }
+
+/* ---------- hero ---------- */
+.pp-hero {
+  background: linear-gradient(135deg, #fefce8 0%, #fff7ed 50%, #fef2f2 100%);
+  padding: 3rem 0 3.5rem;
+}
+.pp-hero-grid { display: grid; gap: 2.5rem; align-items: center; }
+.pp-hero h1 {
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+.pp-lead {
+  font-size: 1.125rem;
+  color: hsl(var(--muted-foreground));
+  max-width: 34rem;
+  margin-bottom: 1.75rem;
+}
+.pp-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.pp-photo { border-radius: 1rem; overflow: hidden; background: #fff; box-shadow: 0 20px 40px -16px rgba(80, 20, 10, 0.35); }
+.pp-photo img { display: block; width: 100%; height: auto; }
+.pp-photo figcaption { padding: 0.75rem 1rem; font-size: 0.875rem; color: hsl(var(--muted-foreground)); }
+
+/* ---------- buttons ---------- */
+.pp-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 2.75rem; padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem; border: 1.5px solid transparent;
+  font: inherit; font-weight: 600; font-size: 0.975rem;
+  text-decoration: none; cursor: pointer;
+}
+.pp-btn-wa { background: #0f7a40; color: #fff; }
+.pp-btn-wa:hover { background: #0b6434; }
+.pp-btn-line { background: #fff; border-color: hsl(var(--primary) / 0.45); color: hsl(0 70% 38%); }
+.pp-btn-line:hover { background: hsl(var(--primary) / 0.06); }
+.pp-btn:focus-visible, .pp-field input:focus-visible, .pp-field select:focus-visible, .pp-field textarea:focus-visible, .pp-link:focus-visible {
+  outline: 3px solid #b45309; outline-offset: 2px;
+}
+
+/* ---------- sections ---------- */
+.pp-section { padding: 3.5rem 0; }
+.pp-section.alt { background: hsl(var(--muted)); }
+.pp-section h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.01em; margin-bottom: 1rem; }
+.pp-section p + p { margin-top: 1rem; }
+.pp-prose p { font-size: 1.0625rem; color: hsl(0 20% 30%); max-width: 40rem; }
+
+.pp-split { display: grid; gap: 2rem; }
+
+/* list of what we make */
+.pp-items { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.pp-item {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-left: 4px solid hsl(var(--primary));
+  border-radius: 0.625rem;
+  padding: 1.1rem 1.25rem;
+}
+.pp-item h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.25rem; }
+.pp-item p { color: hsl(0 20% 32%); font-size: 0.975rem; }
+
+/* callout used for the DFTQC number */
+.pp-callout {
+  background: #fff;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  max-width: 40rem;
+}
+.pp-callout strong { font-size: 1.25rem; letter-spacing: 0.02em; }
+
+/* detail list (address, hours...) */
+.pp-details { display: grid; gap: 1.25rem; }
+.pp-details dt { font-weight: 700; margin-bottom: 0.15rem; }
+.pp-details dd { color: hsl(0 20% 30%); }
+
+/* contact cards */
+.pp-cards { display: grid; gap: 1rem; }
+.pp-card {
+  background: #fff; border: 1px solid hsl(var(--border)); border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+}
+.pp-card h2, .pp-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.25rem; }
+.pp-card .pp-big { display: block; font-size: 1.375rem; font-weight: 700; margin: 0.25rem 0 0.75rem; text-decoration: none; }
+.pp-card p { color: hsl(0 20% 32%); font-size: 0.95rem; }
+
+/* order form */
+.pp-form { display: grid; gap: 1rem; background: #fff; border: 1px solid hsl(var(--border)); border-radius: 0.75rem; padding: 1.5rem; }
+.pp-form-row { display: grid; gap: 1rem; }
+.pp-field label { display: block; font-weight: 600; font-size: 0.925rem; margin-bottom: 0.3rem; }
+.pp-field input, .pp-field select, .pp-field textarea {
+  width: 100%; font: inherit; color: inherit;
+  padding: 0.65rem 0.75rem; background: #fff;
+  border: 1.5px solid hsl(45 30% 70%); border-radius: 0.5rem;
+}
+.pp-field textarea { min-height: 6rem; resize: vertical; }
+.pp-help { font-size: 0.85rem; color: hsl(var(--muted-foreground)); }
+.pp-status { min-height: 1.25rem; font-size: 0.925rem; font-weight: 600; color: hsl(0 70% 38%); }
+
+/* online links */
+.pp-links { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
+.pp-link {
+  display: block; padding: 0.85rem 1rem; background: #fff;
+  border: 1px solid hsl(var(--border)); border-radius: 0.625rem;
+  text-decoration: none; font-weight: 600;
+}
+.pp-link small { display: block; font-weight: 400; color: hsl(var(--muted-foreground)); font-size: 0.8rem; }
+.pp-link:hover { border-color: hsl(var(--primary) / 0.5); }
+
+/* closing band */
+.pp-band { background: linear-gradient(135deg, #fef3c7, #ffedd5); padding: 3rem 0; }
+.pp-band h2 { font-size: clamp(1.4rem, 3vw, 1.85rem); font-weight: 700; margin-bottom: 0.5rem; }
+.pp-band p { color: hsl(0 20% 30%); margin-bottom: 1.25rem; max-width: 36rem; }
+
+@media (min-width: 48rem) {
+  .pp-hero { padding: 4.5rem 0; }
+  .pp-hero-grid { grid-template-columns: 1.05fr 1fr; gap: 3.5rem; }
+  .pp-split { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .pp-items { grid-template-columns: repeat(2, 1fr); }
+  .pp-cards { grid-template-columns: repeat(2, 1fr); }
+  .pp-form-row { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- map, checkbox, honeypot ---------- */
+.pp-map { border-radius: 0.75rem; overflow: hidden; border: 1px solid hsl(var(--border)); background: #fff; }
+.pp-map iframe { display: block; width: 100%; height: 22rem; border: 0; }
+.pp-check { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.925rem; cursor: pointer; }
+.pp-check input { width: 1.15rem; height: 1.15rem; margin-top: 0.2rem; flex: none; accent-color: #0f7a40; }
+.pp-check input:focus-visible { outline: 3px solid #b45309; outline-offset: 2px; }
+/* hidden spam trap: people never see it, bots fill it in */
+.pp-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+@media (min-width: 48rem) { .pp-map iframe { height: 26rem; } }
+
+/* ---------- numbered steps (real sequences only) ---------- */
+.pp-steps { counter-reset: step; display: grid; gap: 1rem; margin-top: 1.5rem; max-width: 44rem; }
+.pp-steps li {
+  counter-increment: step; position: relative;
+  background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 0.625rem;
+  padding: 1rem 1.25rem 1rem 3.75rem;
+}
+.pp-steps li::before {
+  content: counter(step); position: absolute; left: 1.1rem; top: 0.95rem;
+  width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  background: hsl(var(--primary)); color: #fff; font-weight: 700; font-size: 0.95rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.pp-steps h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.15rem; }
+.pp-steps p { color: hsl(0 20% 32%); font-size: 0.95rem; }
+.pp-asklist { display: grid; gap: 0.6rem; margin-top: 1rem; max-width: 40rem; }
+.pp-asklist li { padding-left: 1.4rem; position: relative; color: hsl(0 20% 28%); }
+.pp-asklist li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: hsl(var(--primary) / 0.7); }
