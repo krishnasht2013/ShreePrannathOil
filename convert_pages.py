@@ -25,8 +25,8 @@ for f in sorted(root.glob("*.html")):
 
     # 1. links
     s = re.sub(r'file:///C:/Users/[^"\']*?SPO_chatgpt_main_folder%20\(1\)/', '/', s)
-    s = s.replace('href="/index.html"', 'href="/"')
-    s = s.replace('file:///C:/services', '/services.html')
+    s = s.replace('href="/"', 'href="/"')
+    s = s.replace('/services.html', '/services.html')
     for p in ("privacy", "terms", "shipping"):
         s = s.replace(f'file:///C:/{p}', '#')
     s = re.sub(r'(href|src)="\./', r'\1="/', s)
